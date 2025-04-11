@@ -9,4 +9,8 @@ This repository is a personal project space for exploring, implementing, and lea
 - Focuses on understanding backpropagation, activation functions, and gradiet descent.
 - Performance will be tracked against a test set, with experiments in tuning hyperparameters.
 
+
 2. Decision Trees & Random Forests
+- Step-by-step construction of decision trees from scratch using concepts like Gini impurity and information gain.
+- Application of the decision tree on classification problems.
+- Extension into a random forest for improved generalization and accuracy
