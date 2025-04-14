@@ -11,6 +11,20 @@ def sigmoid_prime(z):
 
 '''
 ----- > Network class < -----
+
+Architecture Hyperparameters:
+- input_nodes: number of nodes in the input layers
+- output_nodes: number of nodes in the output layer
+- hidden_layers: number of hidden layers
+- hidden_neurons: number of neurons in each hidden layer
+- activation_function: function applied to activation at node to compress into range [0,1]
+
+Training Hyperparameters:
+- learning_rate: the size of the steps taken during gradient decent 
+- batch_size: number of samples per gradient update
+- epochs: how many full passes over the training data
+- optimizer: optimization algorithm
+- loss_function: metric by which the model is measured 
 '''
 class Network(object):
 
