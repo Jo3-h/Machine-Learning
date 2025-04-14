@@ -1,16 +1,34 @@
-# Machine-Learning
+# Machine Learning
 
-This repository is a personal project space for exploring, implementing, and learning about various machine learning algorithms. This will be done both from first principles, and then using pre-built libraries. The goal is to get hands-on practice in these programming tasks, as well as deepening my understanding of the core concepts involved in machine learning. 
+The purpose of this repository is to gain insight into the most common implementations of Machine Learning algorithms. The goal of this process is to learn the innerworkings of each model including their strengths, weaknesses, limitations, and implementation challenges. The process by which this will  be achieved for each model will be by completing the following key steps to understanding each model completely...
 
-## Projects Included
+1. Research the model / read relevant documentation & text
+2. Implement model from first principles in prefered programming language
+3. Implement model using existing libraries which have existing optimization of processes in place
+4. Utilise model using real data and compare personal implementaion with industry standard frameworks
+5. Experiment with various model hyperparameters to attempt to acheive different results
+6. Document and discuss findings / learnings
 
-1. Neural Network for Digit Recognition
-- Implementation of a feedforward neural network to recognise handwritten digits using MNIST dataset
-- Focuses on understanding backpropagation, activation functions, and gradiet descent.
-- Performance will be tracked against a test set, with experiments in tuning hyperparameters.
+## Models
 
+### Feedforward Neural Network
 
-2. Decision Trees & Random Forests
-- Step-by-step construction of decision trees from scratch using concepts like Gini impurity and information gain.
-- Application of the decision tree on classification problems.
-- Extension into a random forest for improved generalization and accuracy
+### Decision Tree
+
+### Regression Tree
+
+### Random Forest
+
+### Linear Regression
+
+### Logistic Regression
+
+### Support Vector Machines (SVM)
+
+### K-Nearest Neighbours
+
+### Naive Bayes
+
+### K-Means Clustering
+
+### Gradient Boosting Machines
