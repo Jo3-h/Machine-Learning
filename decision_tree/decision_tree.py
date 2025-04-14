@@ -16,9 +16,6 @@ class TreeNode:
 
     def is_leaf(self):
         return self.value is not None
-    
-
-
 
 '''
 -----> Decision Tree Classifier <-----
@@ -33,19 +30,31 @@ Hyperparameters:
 
 class DecisionTree:
 
-    # Initialisation method to set hyperparameters
-    def __init__(self, criterion='gini', max_depth=None, min_samples_split=2, min_samples_leaf=1):
+    # Initialization method to set hyperparameters
+    def __init__(self, criterion='gini', max_depth=None, min_samples_split=2, min_samples_leaf=1, max_leaf_nodes=None):
         self.criterion = criterion
         self.max_depth = max_depth
         self.min_samples_split = min_samples_split
         self.min_samples_leaef = min_samples_leaf
+        self.max_leaf_nodes = max_leaf_nodes
         self.root = None
         return
     
     # Method to print the contents of the tree including training data-points at each node
-    
+    def __str__(self):
+        return
+
     # Method to fit the decision tree classifier to the training data
-    def build_tree(self, max_depth=0, min_samples_split=2):
+    def build_tree(self, data, depth=0):
+
+        # base case if no data is passed
+        if len(data) == 0:
+            return None
+        
+        # if depth exceeds max_depth parameter this node must be leaf
+        if depth > self.max_depth:
+            return
+
         return
 
     # Method to calculate the Gini Impurity of a given set of rows
