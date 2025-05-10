@@ -29,14 +29,14 @@ class TestDecisionTreeClassifier(unittest.TestCase):
 
         self.X_train, self.X_test, self.y_train, self.y_test = train_test_split(X, y, test_size=0.1, random_state=42)
 
+        print()
         return
 
-    # Method to test the accuracy of the custom implemented DecisionTreeClassifier
+    # Method to test the accuracy of the custom implemented DecisionTreeClassifier with the gini criterion
     def test_myDecisionTreeClassifier_gini(self):
 
         # Combine X and Y values for model
         train_data = np.column_stack((self.X_train, self.y_train))
-        test_data = np.column_stack((self.X_test, self.y_test))
 
         DecisionTree = DecisionTreeClassifier(criterion='gini')
         DecisionTree.fit(train_data)
@@ -48,11 +48,28 @@ class TestDecisionTreeClassifier(unittest.TestCase):
         self.assertGreaterEqual(accuracy, 0.9)
 
         # Display the accuracy of the model
-        print(f"myDecisionTreeClassifier accuracy: {accuracy}")
+        print(f"myDecisionTreeClassifier with gini impurity accuracy: {accuracy}")
         return
     
-    # Method to test the accuracy of the SciKit-Learn implementation of DecisionTreeClassifier
-    def test_sciKitLearn_DecisionTreeClassifier(self):
+    # Method to test the accuracy of the custom implemented DecisionTreeClassifier with the entropy criterion
+    def test_myDecisionTreeClassifer_entropy(self):
+
+        train_data = np.column_stack((self.X_train, self.y_train))
+
+        DecisionTree = DecisionTreeClassifier(criterion='entropy')
+        DecisionTree.fit(train_data)
+
+        predications = DecisionTree.predict(self.X_test)
+        correct = sum(pred == true for pred, true in zip(self.y_test, predications))
+        accuracy = correct / len(self.y_test)
+    
+        self.assertGreaterEqual(accuracy, 0.9)
+
+        # display the accuracy of the model
+        print(f"myDecisionTreeClassifier with entropy accuracy: {accuracy}")
+
+    # Method to test the accuracy of the SciKit-Learn implementation of DecisionTreeClassifier with gini impurity as criterion
+    def test_sciKitLearn_DecisionTreeClassifier_gini(self):
 
         clf = SkLearnDecisionTree(criterion='gini',random_state=42)
         clf.fit(self.X_train, self.y_train)
@@ -62,9 +79,22 @@ class TestDecisionTreeClassifier(unittest.TestCase):
         # method call to assert whether model has reached the required accuracy
         self.assertGreaterEqual(accuracy, 0.9)
 
-        print(f"\nsci-learn DecisionTreeClassifier accuracy: {accuracy}")
+        print(f"sci-learn DecisionTreeClassifier with gini impurity accuracy: {accuracy}")
+        return
+    
+    # Method to test the accuracy of the SciKit-Learn implementation of DecisionTreeClassifier with entropy as criterion
+    def test_sciKitLearn_DecisionTreeClassifier_entropy(self):
+
+        clf = SkLearnDecisionTree(criterion='entropy',random_state=42)
+        clf.fit(self.X_train, self.y_train)
+        predications = clf.predict(self.X_test)
+        accuracy = accuracy_score(predications, self.y_test)
+        
+        # method call to assert whether model has reached the required accuracy
+        self.assertGreaterEqual(accuracy, 0.9)
+
+        print(f"sci-learn DecisionTreeClassifier with entropy accuracy: {accuracy}")
         return
 
 if __name__ == "__main__":
-    
     unittest.main()

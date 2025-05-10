@@ -157,7 +157,7 @@ class DecisionTreeClassifier:
                 p = float(len(true_rows))/len(rows)
                 if self.criterion == 'gini':
                     gain = current_uncertainty - (p*self._gini_impurity(true_rows) + (1-p)*self._gini_impurity(false_rows))
-                else:
+                elif self.criterion == 'entropy':
                     gain = current_uncertainty - (p*self._entropy(true_rows) + (1-p)*self._entropy(false_rows))
 
                 if gain > best_gain:
